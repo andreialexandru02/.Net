@@ -1,0 +1,58 @@
+﻿@model AndreiAlexandru42.Models.GiftCard
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Giftcards", method: FormMethod.Post))
+            {
+
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })  
+
+                @Html.Label("Denumire", "Denumiure")
+                <br />
+                @Html.TextBox("Denumire", null, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(m => m.Denumire , "", new { @class = "text-danger" })
+                <br /><br />
+
+                @Html.Label("Descriere", "Descriere")
+                <br />
+                @Html.TextArea("Descriere", null, new { @class = "form-control" })
+
+                @Html.ValidationMessage("Descriere", null, new { @class = "text-danger" })
+                <br /><br />
+
+                @Html.Label("DataExp", "Data expirare")
+                <br />
+                @Html.TextBox("DataExp", null, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(m => m.DataExp , "", new { @class = "text-danger" })
+                <br /><br />
+
+                 @Html.Label("Procent", "Procent de reducere")
+                <br />
+                @Html.TextBox("Procent", null, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(m => m.Procent , "", new { @class = "text-danger" })
+                <br /><br />
+
+                <label>Selectati Brandul</label>
+                 <br />
+                <select name="BrandId">
+
+                    @foreach (var item in ViewBag.Brands)
+                    {
+                        <option value="@item.Id">@item.Nume</option>
+                    }
+
+                </select>
+                <br /><br />
+
+            @*    @Html.ValidationMessageFor(m => m.BrandId, null, new { @class = "text-danger" })
+                <br /><br />*@
+@*                <label>Selectati brandul</label>
+                @Html.DropDownListFor(m => m.BrandId, new SelectList(Model.Brd, "Value", "Text"),
+                "Selectati brandul", new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(m => m.BrandId, null, new { @class = "text-danger" })
+                <br /><br />*@
+                <button class="btn btn-success" type="submit">Adauga GiftCard</button>
+            
+            }

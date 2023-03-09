@@ -1,0 +1,13 @@
+﻿
+<h2>Afisare Branduri</h2>
+<br />
+@foreach (var brand in ViewBag.Brands)
+{
+ <p>@brand.Nume</p>
+ <br />
+ <a href="/Brands/Show/@brand.Id">Afisare Brand</a>
+ <br />
+
+ <hr />
+}
+<a href="/Brands/New">Adaugare Branduri</a>

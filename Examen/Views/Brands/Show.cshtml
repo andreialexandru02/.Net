@@ -1,0 +1,10 @@
+﻿<h2>Afisare brand</h2>
+<br />
+<p>@ViewBag.Brand.Nume</p>
+<br />
+<form method="post"
+action="/Brands/Delete/@ViewBag.Brand.Id">
+ <button type="submit">Sterge brandul</button>
+</form>
+<br />
+<a href="/Brands/Index">Afisare branduri</a>

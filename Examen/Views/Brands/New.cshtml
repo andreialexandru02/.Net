@@ -1,0 +1,26 @@
+﻿@model AndreiAlexandru42.Models.Brand
+
+
+@{
+    ViewBag.Nume = "Adaugare Brand";
+}
+
+
+<h2>Adaugare Brand</h2>
+
+
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Brands", method: FormMethod.Post))
+{
+
+    @Html.Label("Nume", "Denumire Brand")
+    <br />
+
+    @Html.TextBox("Nume", null, new { @class = "form-control" })
+
+    @Html.ValidationMessageFor(m => m.Nume, null, new { @class = "text-danger" })
+    <br /><br />
+
+    <button class="btn btn-success" type="submit">Adauga brand</button>
+
+}

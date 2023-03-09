@@ -1,0 +1,17 @@
+﻿@*<h2>Afisare GiftCard</h2>
+<br />
+<p>@ViewBag.GiftCard.Denumire</p>
+ <p>@ViewBag.Brand.Nume</p>
+ <p>@ViewBag.GiftCard.Descriere</p>
+ <p>@ViewBag.GiftCard.DataExp</p>
+ <p>@ViewBag.GiftCard.Procent</p>
+<br />
+<form method="post" action="/GiftCards/Delete/@ViewBag.GiftCard.Id">
+
+            <button class="btn btn-danger" type="submit">Sterge GiftCard</button>
+
+        </form>
+<a href="/GiftCards/Index">Afisare GiftCards</a
+    *@
+
+@Html.Partial("GiftCardInfo");

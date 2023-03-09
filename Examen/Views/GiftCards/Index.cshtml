@@ -1,0 +1,28 @@
+﻿<h2>Afisare GiftCards</h2>
+<br />
+
+
+<form method="GET">
+ <div class="input-group mb-3">
+ <input type="text" class="form-control"
+placeholder="Search topics or keywords" name="search"
+ value="@ViewBag.SearchString">
+ <button class="btn btn-outline-success"
+type="submit">Search</button>
+ </div>
+</form>
+
+
+@foreach (var giftcard in ViewBag.GiftCards)
+{
+ <p>@giftcard.Denumire</p>
+ <p>@giftcard.Brand.Nume</p>
+ <p>@giftcard.Descriere</p>
+ <p>@giftcard.DataExp</p>
+ <p>@giftcard.Procent</p>
+ <br /><a href="/GiftCards/Show/@giftcard.Id">Afisare GiftCard</a>
+ <br />
+ <a href="/GiftCards/Edit/@giftcard.Id">Editare GiftCard</a>
+ <hr />
+}
+<a href="/GiftCards/New">Adaugare GiftCard</a>

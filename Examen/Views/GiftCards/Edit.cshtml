@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Denumire = "Edit";
+}
+
+
+<form method="post" action="/GiftCards/Edit/@ViewBag.GiftCard.Id">
+
+    <label>Denumire GiftCard</label>
+    <input type="text" name="Denumire" value="@ViewBag.GiftCard.Denumire" />
+    <br /><br />
+
+    <label>Descriere GiftCard</label>
+    <input type="text" name="Descriere" value="@ViewBag.GiftCard.Descriere" />
+    <br />
+
+    <label>Data exprirare GiftCard</label>
+    <input type="text" name="DataExp" value="@ViewBag.GiftCard.DataExp" />
+    <br />
+    <label>Procent reducere GiftCard</label>
+    <input type="text" name="Procent" value="@ViewBag.GiftCard.Procent" />
+    <br />
+
+    <select name="Brand">
+
+        @foreach (var brand in ViewBag.Brands)
+        {
+            if (brand.Id == ViewBag.Brand.Id)
+            {
+                <option selected="selected" value="@brand.Id">@brand.Nume</option>
+            }
+            else
+            {
+                <option value="@brand.Id">
+                    @brand.Nume
+                </option>
+            }
+        }
+
+    </select>
+
+    <br /><br />
+
+    <button class="btn btn-success" type="submit">Modifica giftCard</button>
+
+</form>
+
+
