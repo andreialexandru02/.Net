@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Lista threaduri";
+}
+
+<h2>@ViewBag.Title</h2>
+<br />  
+
+@if (TempData.ContainsKey("message"))
+{
+    <h1>@ViewBag.message</h1>
+}
+
+@*<a href="/Threads/New">Inapoi la adaugare</a>
+<br />
+<br />*@
+<br />
+<a class="btn btn-success" href="/Threads/New">Adauga un thread</a>
+<br />
+ <br />
+@foreach (_12_dec_2022.Models.Thread thread in ViewBag.Threads)
+{
+    @Html.Label("Content", "Continut thread")
+    <p>@thread.Content</p>
+    @Html.Label("Category", "Categorie thread")
+    <p>@thread.Category</p>
+
+    <a class="btn alert-success" href="/Threads/Show/@thread.IdThread">Afisare Thread</a>
+    <a class="btn alert-success" href="/Threads/Edit/@thread.IdThread">Editare Thread</a>
+   
+   <br />
+    <br />
+    <br />
+}
+

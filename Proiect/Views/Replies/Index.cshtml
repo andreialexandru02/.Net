@@ -1,0 +1,31 @@
+﻿@*
+@{
+    ViewBag.Title = "Lista replies";
+}
+
+<h2>@ViewBag.Title</h2>
+<br />  
+
+@if (TempData.ContainsKey("message"))
+{
+    <h1>@ViewBag.message</h1>
+}
+
+<a href="/Replies/New">Inapoi la adaugare</a>
+<br />
+<br />
+
+@foreach (var reply in ViewBag.Replies)
+{
+    @Html.Label("Reply Content")
+    <p>@reply.Content</p>
+    <a class="btn alert-success" href="/Categories/Show/@reply.IdReply">Afisare reply</a>
+    <a class="btn alert-success" href="/Categories/Edit/@reply..IdReply">Editare reply</a>
+    <br />
+    <br />
+    <br />
+}
+<br />
+<a class="btn btn-success" href="/Replies/New">Adauga un reply nou</a>
+<br />
+*@

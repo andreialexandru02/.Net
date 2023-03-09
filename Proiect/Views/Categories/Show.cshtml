@@ -1,0 +1,82 @@
+﻿@model _12_dec_2022.Models.Category
+@{
+    ViewBag.Title = "Afisare categorie";
+
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+<br />
+
+<p>@Model.CategoryName</p>
+
+
+<form method="post" action="/Categories/Delete/@Model.IdCategory">
+
+    <button class="btn btn-danger" type="submit">Sterge categoria</button>
+
+</form>
+<br />
+<a class="btn alert-success" href="/Categories/Index/">Afisare lista categorii</a>
+
+<br />
+<hr />
+<br />
+
+<a class="btn alert-success" href="/Threads/New">Adaugare thread</a>
+<br />
+<br />
+
+
+@*
+@foreach (var thread in ViewBag.Threads)
+{
+    <p>@thread.Content</p>
+
+   if (thread.IdCategory == @Model.IdCategory)
+    
+   {
+       
+       @*   @Html.Label("Content", "Continut thread")
+        <p>@thread.Content</p>
+        @Html.Label("Category", "Categorie thread")
+        <p>@thread.Category</p>
+
+        <a class="btn alert-success" href="/Threads/Show/@thread.IdThread">Afisare Thread</a>
+        <a class="btn alert-success" href="/Threads/Edit/@thread.IdThread">Editare Thread</a>
+
+        <br />
+        <br />
+        <br />
+    }
+}*@
+@Html.Partial("ThreadInfo", Model) 
+@foreach (var thread in ViewBag.Threads)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8">
+
+                <div>
+
+                    <p>@thread.Text</p>
+            
+
+                </div>
+                <br>
+
+          
+
+                <br />
+
+            </div>
+
+            <div class="col-md-2"></div>
+
+        </div>
+
+    </div>
+}

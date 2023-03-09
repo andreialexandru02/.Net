@@ -1,0 +1,140 @@
+﻿@model _12_dec_2022.Models.Thread
+@{
+    ViewBag.Title = "Afisare thread";
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+<br />
+
+@*<p>@Model.Content</p>
+
+<form method="post" action="/Thread/Delete/@Model.IdThread">
+
+    <button class="btn btn-danger" type="submit">Sterge threadul</button>
+
+</form>
+<br />*@
+<a class="btn alert-success" href="/Threads/Index/">Afisare lista threaduri</a>
+
+<br />
+<hr />
+<br />
+@*<div class="d-flex justify-content-left">
+
+    <a class="btn btn-outline-success" href="/Threads/Index/">Afisare Threaduri</a>
+
+    <a class="btn btn-outline-success" href="/Threads/New">Adauga Thread</a>
+
+</div>*@
+
+<br />
+<partial name="ThreadInfo" model="Model"></partial>
+
+
+     <div class="d-flex flex-row justify-content-between">
+
+        <a class="btn btn-success" href="/Threads/Edit/@Model.IdThread">Editeaza thread</a>
+
+        <form method="post" action="/Threads/Delete/@Model.IdThread">
+
+            <button class="btn btn-danger" type="submit">Sterge articol</button>
+
+        </form>
+
+    </div>
+<br />
+<br />
+
+
+@foreach (var reply in ViewBag.Replies)
+@*@foreach (var reply in Model.Replies)*@
+{
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8">
+
+                <div>
+                     
+                    <p>@reply.Text</p>
+                    @* <small>@reply.Date</small> *@
+
+                </div>
+                <br>
+
+                <div class="d-flex">
+
+                    <div>
+
+                        <a class="btn btn-outline-primary" href="/Replies/Edit/@reply.Value"><i class="bi bi-pencil-square"></i>Editeaza</a>
+
+                    </div>
+
+                    <div>
+
+                        <form method="post" action="/Replies/Delete/@reply.Value">
+
+                            <button class="btn btn-outline-danger" type="submit"><i class="bi bi-trash"></i>Sterge</button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <br />
+
+            </div>
+
+            <div class="col-md-2"></div>
+
+        </div>
+
+    </div>
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+
+            <div class="card">
+                
+                <form method="post" action="/Threads/Show/@Model.IdThread">
+
+                    <div class="card-body">
+
+                        <input type="hidden" name="IdThread" value="@Model.IdThread" />
+
+                        <label>Continut Reply</label>
+                        <br />
+
+                        <textarea class="form-control" name="Content"></textarea>
+
+                        @Html.ValidationMessage("Content", null, new { @class = "text-danger"})
+
+                        <br /><br />
+
+                        <button class="btn btn-success " type="submit">Adauga Reply</button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2"></div>
+
+    </div>
+
+</div>
+

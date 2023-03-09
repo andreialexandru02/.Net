@@ -1,0 +1,52 @@
+﻿@*@model _12_dec_2022.Models.Reply
+
+@{
+    ViewBag.Title = "Editare reply";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(controllerName: "Replies", actionName: "Edit", method: FormMethod.Post,
+      routeValues: new { id = Model.IdReply }))
+{
+    @Html.Label("Reply Content")
+    <br />
+    @Html.Editor("Reply Content")
+
+    @Html.ValidationMessageFor(m => m.Content, null, new { @class = "text-danger" })
+    <br />
+
+    <br />
+
+    <button class="btn btn-success" type="submit">Modifica reply-ul</button>
+}*@
+@model _12_dec_2022.Models.Reply
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editare reply</h2>
+<br />
+
+
+@using (Html.BeginForm(controllerName: "Reply-uri", actionName: "Edit", 
+       method: FormMethod.Post, routeValues: new { id = Model.IdReply }))
+
+{
+    @Html.Label("Content", "Continut reply")
+
+    <br />
+
+    @Html.Editor("Content", new { @class = "form-control" })
+    <br />
+
+    @Html.ValidationMessage("Content", null, new { @class = "text-danger" })
+
+    <br /><br />
+
+    <button class="btn  btn-primary" type="submit">Editeaza comentariul</button>
+
+}
+

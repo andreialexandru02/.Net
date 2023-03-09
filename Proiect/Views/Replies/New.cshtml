@@ -1,0 +1,33 @@
+﻿@*@model _12_dec_2022.Models.Reply
+
+
+@{
+    ViewBag.Title = "Adaugare Reply";
+}
+
+
+<h2>Adaugare Reply</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Replies", method: FormMethod.Post))
+{
+
+    @Html.Label("ReplyContent")
+    <br />
+
+    @Html.TextBox("ReplyContent", null, new { @class = "form-control" })
+
+    @Html.ValidationMessageFor(m => m.Content, null, new { @class = "text-danger" })
+    <br /><br />
+
+    @*<label>Selectati thread</label>
+                @Html.DropDownListFor(m => m.IdThread, new SelectList(Model.Thr, "Value", "Text"),
+                "Selectati threadul", new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(m => m.IdThread, null, new { @class = "text-danger" })
+                <br /><br />
+
+
+    <button class="btn btn-success" type="submit">Adauga reply</button>
+
+}*@
+
