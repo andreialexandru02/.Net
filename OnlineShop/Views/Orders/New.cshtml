@@ -1,0 +1,51 @@
+﻿
+
+<p>Nume produs: @ViewBag.OrderedProduct.Name</p>
+<p>Pret : @ViewBag.OrderedProduct.Price lei</p>
+<!--<p>Comanda pentru produsul @ViewBag.ProductID</p> -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6 offset-3"> 
+
+            @using (Html.BeginForm(actionName: "New", controllerName: "Orders",
+            method: FormMethod.Post))
+            {
+
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })  
+
+                @Html.Label("Nume", "Numele dumneavoastră")
+                <br />
+                @Html.TextBox("Nume", null, new { @class = "form-control" })
+
+                @Html.Label("Email", "Email-ul dumneavoastră")
+                <br />
+                @Html.TextArea("Email", null, new { @class = "form-control" })
+                
+                @Html.Label("Adresă", "Adresa dumneavoastră")
+                <br />
+                @Html.TextArea("Adresă", null, new { @class = "form-control" })
+
+                @Html.Label("Telefon", "Număr de telefon")
+                <br />
+                @Html.TextArea("Telefon", null, new { @class = "form-control" })
+                
+                
+                <input type="hidden" name="ProductID" value=@ViewBag.OrderedProduct.ProductID>
+                <input type="number"  name="NumberOfProducts">
+                @*@Html.Label("NumberOfProducts", "Numar Produse")
+                <br />
+                @Html.TextBox("NumberOfProducts", null, new { @class = "form-control" })*@
+
+                <button class="btn btn-success" type="submit">Trimite Comanda</button>
+            }
+            
+        </div>
+    </div>
+</div>
+@if( TempData["Message"] != null)
+{
+        
+    <h2 class="alert-danger p-3 rounded-3 text-center mb-5"> @TempData["Message"] </h2>
+}
+
+ 

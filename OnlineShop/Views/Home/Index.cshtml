@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<a class="btn btn-success" href="/Products/Index">Afisare produse</a>
+<a class="btn btn-success" href="/Orders/Index">Afisare comenzi</a>
+
+<a class="btn btn-success" href="/Orders/New/9">Afisare comanda 9</a>
+
+@if( TempData["Message"] != null)
+    {
+        <h2 class="alert-success p-3 rounded-3 text-center mb-5">@TempData["Message"]</h2>
+    }
+

@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>Afisare produse</h2>
+<br />
+@foreach (var product in ViewBag.Products)
+{
+     <p>Nume produs:@product.Name</p>
+     <p>Descriere produs: @product.Description</p>
+     <p>Pret: @product.Price</p>
+     <p>Stoc disponiibl: @product.AvailableStock</p>
+     <br />
+     <a href="/Products/Show/@product.ProductID">Afisare produs</a>
+     
+}

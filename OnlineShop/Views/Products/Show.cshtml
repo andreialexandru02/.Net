@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>Afisare Produs</h2>
+<br />
+<p>@ViewBag.Product.Name</p>
+<p>@ViewBag.Product.Description</p>
+<p>@ViewBag.Product.Price</p>
+<p>@ViewBag.Product.AvailableStock</p>
+<br />
+<a href="/Products/Index">Afisare produse</a>
+<p>Este produsul cu numarul @ViewBag.Product.ProductID</p>
+@*<a href="/Orders/New/@ViewBag.Product.ProductID">Place Order</a>*@
+<a href="/Orders/New/@ViewBag.Product.ProductID">Place Order</a>
+
+
